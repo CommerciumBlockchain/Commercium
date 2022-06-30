@@ -235,8 +235,8 @@ func (c *BoundContract) transact(opts *TransactOpts, contract *common.Address, i
 		if contract != nil {
 			if code, err := c.transactor.PendingCodeAt(ensureContext(opts.Context), c.address); err != nil {
 				return nil, err
-//CMM			} else if len(code) == 0 {
-//CMM				return nil, ErrNoCode
+			} else if len(code) == 0 {
+				return nil, ErrNoCode
 			}
 		}
 		// If the contract surely has code (or code is not needed), estimate the transaction
